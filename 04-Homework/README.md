@@ -19,17 +19,18 @@ SO THAT I can gauge my progress compared to my peers
 ## Acceptance Criteria
 
 ```
-GIVEN I am taking a code quiz
-WHEN I click the start button
-THEN a timer starts and I am presented with a question
-WHEN I answer a question
-THEN I am presented with another question
-WHEN I answer a question incorrectly
-THEN time is subtracted from the clock
-WHEN all questions are answered or the timer reaches 0
-THEN the game is over
-WHEN the game is over
-THEN I can save my initials and my score
+(*) GIVEN I am taking a code quiz
+(*) WHEN I click the start button
+(*) THEN a timer starts and 
+(3b) I am presented with a question
+(4) WHEN I answer a question
+(5) THEN I am presented with another question
+(6) WHEN I answer a question incorrectly
+(7) THEN time is subtracted from the clock
+(8) WHEN all questions are answered or the timer reaches 0
+(9) THEN the game is over
+(10) WHEN the game is over
+(11) THEN I can save my initials and my score
 ```
 
 ## Mock-Up
