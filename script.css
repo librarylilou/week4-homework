@@ -1,0 +1,10 @@
+#time{
+    position: fixed;
+    top: 10px;
+    right: 30px; 
+}
+#count{
+    position: fixed;
+    top: 10px;
+    right: 5px; 
+}
