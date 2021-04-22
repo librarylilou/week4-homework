@@ -1,5 +1,5 @@
 function startTimer(){
-    var counter = 40;
+    var counter = 30;
     setInterval(function() {
       counter--;
       if (counter >= 0) {
