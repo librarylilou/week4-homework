@@ -1,29 +1,57 @@
-function startQuiz(){
-    var questions = {
-        qOne: "Fill in the blank. Objects are a collection of _________.",
-        qTwo: "Which is the proper variable annotaion for an array?"
-    }; 
+// user selects a choice
+// if correct count & message 'correct!'
+// if incorrect note & message 'wrong!'
+// question 1
+var point = 0;
+
+function init() {
+  getCorrect();
+  getWrong();
 }
 
+function correctOption() {
+  wordBlank.textContent = "Correct!";
+  point++
+  startButton.disabled = false;
 
-var choicesOne = ["variables", "elements", "properties"];
-var choicesTwo = ["var varName = {}", "var varName = []", "var varName = ()" ]; 
+  setCorrect()
+}
 
-var answers = {
-    aOne: "Properties",
-    aTwo: "var varName = []"
+// The loseGame function is called when timer reaches 0
+function wrongOption() {
+  wordBlank.textContent = "Wrong!";
+  loseCounter++
+  startButton.disabled = false;
+  setWrong()
+}
+
+// The setTimer function starts and stops the timer and triggers correctOption() and wrongOption()
+function startTimer() {
+  // Sets timer
+  var timer = 30;
+  setInterval(function () {
+    timer--;
+    //timerElement.textContent = timerCount;
+    if (timer >= 0) {
+      span = document.getElementById("count");
+      span.innerHTML = timer;
+
+      // Tests if all questions have been answered
+      if (/*isWin* && if answers all qs before time */ timerCount > 0) {
+        // Clears interval and stops timer
+        clearInterval(timer);
+        correctOption();
+      }
+    }
+    // Tests if time has run out
+    if (timer === 0) {
+      // Clears interval
+      clearInterval(timer);
+      // function for user score page();
+    }
+  }, 1000);
+}
+function start() {
+  document.getElementById("count");
+  startTimer();
 };
-
-<div class="btn-group-vertical btn-group-lg" role="group" aria-label="Basic outlined example">
-  <button type="button" class="btn btn-outline-primary">variables</button>
-  <button type="button" class="btn btn-outline-primary">elements</button>
-  <button type="button" class="btn btn-outline-primary">properties</button>
-</div>
-
-/*
-<div class="choicesTwo" role="group" aria-label="Basic outlined example">
-  <button type="button" class="btn btn-outline-primary">var varName = {}</button>
-  <button type="button" class="btn btn-outline-primary">var varName = []</button>
-  <button type="button" class="btn btn-outline-primary">var varName = ()</button>
-</div> 
-*/
