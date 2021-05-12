@@ -2,56 +2,47 @@
 // if correct count & message 'correct!'
 // if incorrect note & message 'wrong!'
 // question 1
-var point = 0;
+var mainEl = document.querySelector("#main");
+var timerEl = document.querySelector("#count");
+var startButton = document.querySelector("button");
+//var question = document.querySelector("#question");
 
-function init() {
-  getCorrect();
-  getWrong();
-}
 
-function correctOption() {
-  wordBlank.textContent = "Correct!";
-  point++
-  startButton.disabled = false;
+var seconds = 3;
 
-  setCorrect()
-}
 
-// The loseGame function is called when timer reaches 0
-function wrongOption() {
-  wordBlank.textContent = "Wrong!";
-  loseCounter++
-  startButton.disabled = false;
-  setWrong()
-}
-
-// The setTimer function starts and stops the timer and triggers correctOption() and wrongOption()
 function startTimer() {
   // Sets timer
-  var timer = 30;
-  setInterval(function () {
-    timer--;
-    //timerElement.textContent = timerCount;
-    if (timer >= 0) {
-      span = document.getElementById("count");
-      span.innerHTML = timer;
+  var timer = setInterval(function () {
+    seconds--;
+    timerEl.textContent = seconds;
 
-      // Tests if all questions have been answered
-      if (/*isWin* && if answers all qs before time */ timerCount > 0) {
-        // Clears interval and stops timer
-        clearInterval(timer);
-        correctOption();
-      }
-    }
-    // Tests if time has run out
-    if (timer === 0) {
-      // Clears interval
+    if (seconds === 0) {
+      // stops timer after 15 seconds reach zero
       clearInterval(timer);
-      // function for user score page();
+      // calls function to end quiz
+      quizDone();
     }
+
   }, 1000);
+  questions();
 }
-function start() {
-  document.getElementById("count");
-  startTimer();
-};
+
+function questions() {
+  if (startButton) {
+    mainEl.textContent = "";
+    var questionDisplay = questionOne.textContent = questionOne.question;
+    document.body.append(questionDisplay);
+    
+    console.log(questionDisplay);
+  }
+
+}
+
+
+
+function quizDone() {
+  console.log("done :)");
+}
+
+
