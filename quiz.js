@@ -43,15 +43,13 @@ function questions() {
     for (var i = 0; i < optionsArray.length; i++) {
       var allOptions = optionsArray[i];
       var someOption = document.querySelector("option");
-      var optionBubbleEl = document.querySelector("#optionBubble");
+      var optionBubbleEl = document.querySelector("input");
       
       var optionBubble = optionBubbleEl.innerHTML;
-
-  
-
+       var together = (optionBubble && someOption)
       someOption.textContent = allOptions;
       someOption.value = allOptions;
-      someOption.document = (optionBubble[0].toString());
+      someOption.document = together;
 
       optionDisplay.append(someOption);
       console.log(someOption);
