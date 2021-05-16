@@ -1,12 +1,10 @@
-// user selects a choice
-// if correct count & message 'correct!'
-// if incorrect note & message 'wrong!'
-// question 1
 var mainEl = document.querySelector("#main");
 var timerEl = document.querySelector("#count");
 var startButton = document.querySelector("button");
-//var question = document.querySelector("#question");
+var questionEl = document.querySelector("#question");
+var optionEl = document.querySelectorAll("#options");
 
+var doneEl = document.querySelector("#done");
 
 var seconds = 3;
 
@@ -31,17 +29,40 @@ function startTimer() {
 function questions() {
   if (startButton) {
     mainEl.textContent = "";
-    var questionDisplay = questionOne.textContent = questionOne.question;
-    document.body.append(questionDisplay);
-    
-    console.log(questionDisplay);
-  }
+    var optionDisplay = document.querySelector(".hide");
+    optionDisplay.setAttribute("style", "display: block");
 
+    // displays the question prompt
+    var questionText = questionEl.textContent = questionOne.question;
+    console.log(questionText, optionDisplay);
+
+    // array for the list of options
+    var optionsArray = questionOne.options;
+
+    // for-loop to display all options listed in Array
+    for (var i = 0; i < optionsArray.length; i++) {
+      var allOptions = optionsArray[i];
+      var someOption = document.querySelector("option");
+      var optionBubbleEl = document.querySelector("#optionBubble");
+      
+      var optionBubble = optionBubbleEl.innerHTML;
+
+  
+
+      someOption.textContent = allOptions;
+      someOption.value = allOptions;
+      someOption.document = (optionBubble[0].toString());
+
+      optionDisplay.append(someOption);
+      console.log(someOption);
+
+    }
+  }
 }
 
-
-
 function quizDone() {
+
+
   console.log("done :)");
 }
 
